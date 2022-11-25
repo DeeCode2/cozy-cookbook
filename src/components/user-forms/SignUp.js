@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../config/AuthContext';
 import { auth } from "../../config/Firebase.js";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
+
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
-    
+
     const { createUser } = UserAuth();
     const navigate = useNavigate()
 
@@ -35,7 +37,7 @@ const SignUp = () => {
         });
             console.log("Menu doc created ");
         
-        navigate('/myrecs')
+        navigate('/recipes')
         } catch (e) {
         setError(e.message);
         console.log(e.message);

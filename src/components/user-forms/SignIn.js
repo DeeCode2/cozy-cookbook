@@ -15,7 +15,7 @@ const SignIn = () => {
     setError("");
     try {
       await signIn(email, password);
-      navigate("/myrecs");
+      navigate("/recipes");
     } catch (e) {
       setError(e.message);
       document.getElementById("err-message").innerText =

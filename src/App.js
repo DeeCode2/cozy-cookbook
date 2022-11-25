@@ -1,6 +1,7 @@
 import { AuthContextProvider } from './config/AuthContext';
-import {Route, Routes} from "react-router-dom"
-import './App.css';
+import {Route, Routes} from "react-router-dom";
+import ProtectedRoute from './config/ProtectedRoute';
+//import './App.css';
 
 //components
 import SignIn from './components/user-forms/SignIn.js';
