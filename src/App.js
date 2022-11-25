@@ -28,11 +28,13 @@ function App() {
         {/* <Route path="account" element={<ProtectedRoute><Account /></ProtectedRoute>} /> */}
         <Route path="create" element={<ProtectedRoute><Create /></ProtectedRoute>} />
         <Route path="/recipes/:recId" element={<ProtectedRoute><Recipe /></ProtectedRoute>} />
+        <Route path="shoppinglists" element={<ProtectedRoute><Lists /></ProtectedRoute>} />
         <Route path="/recipes/:recId/edit" element={<ProtectedRoute><Edit /></ProtectedRoute>} />
+        {/* 
         <Route path="shoppinglists" element={<ProtectedRoute><Lists /></ProtectedRoute>} />
         <Route path="shoppinglists/:listId" element={<ProtectedRoute><ShoppingList /></ProtectedRoute>} />
         <Route path="results" element={<ProtectedRoute><Results /></ProtectedRoute>} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </AuthContextProvider>
   );
