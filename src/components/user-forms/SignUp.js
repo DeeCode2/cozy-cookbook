@@ -59,7 +59,7 @@ const SignUp = () => {
               <input onChange={(e) => setPassword(e.target.value)} type='password' id="password"/>
             </div>
 
-            <button>Sign Up</button>
+            <button className="btn yellow-btn">Sign Up</button>
 
             <p>Already have an account?{' '}<Link to='/'>Sign in.</Link></p>
 

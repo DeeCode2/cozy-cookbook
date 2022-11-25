@@ -83,11 +83,6 @@ function Recipe() {
     });
   }, []);
 
-  //console.log(listData)
-
-  //add ingredients to shopping list
-  //onclick get tag array elements
-
   return (
     <main>
       <section>
@@ -107,9 +102,9 @@ function Recipe() {
       </section>
 
       <div>
-        <button type="button">Return</button>
-        <Link to={"edit"}>Edit</Link>
-        <button type="button">Add to shopping list</button>
+        <button type="button" className="btn blue-btn">Return</button>
+        <Link to={"edit"} className="btn green-btn">Edit</Link>
+        {/* <button type="button">Add to shopping list</button> */}
       </div>
     </main>
   );

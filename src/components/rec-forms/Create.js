@@ -95,7 +95,7 @@ function Create() {
     const ingredientButtons = ingArr.map(ing => {
         return (
             <button
-                className="btn"
+                className="btn blue-btn"
                 value={ing}
                 key={ing}
                 onClick={(e) => {
@@ -109,7 +109,7 @@ function Create() {
     const tagButtons = tagArr.map(tag => {
         return (
             <button
-                className="btn"
+                className="btn blue-btn"
                 value={tag}
                 key={tag}
                 onClick={(e) => {
@@ -198,7 +198,7 @@ function Create() {
                             ref={recIng}
                             placeholder="e.g Apples, Sugar, etc."
                             required/>   
-                        <button type="button" onClick={addIng}>Add</button> 
+                        <button type="button" onClick={addIng} className="btn yellow-btn">Add</button> 
                     </div>
                     <div id="button-list">{ingredientButtons}</div>
                 </div>
@@ -212,7 +212,7 @@ function Create() {
                             name="tags"
                             ref={recTag}
                             placeholder="e.g Desert, Sweet, etc."/>   
-                        <button type="button" onClick={addTag}>Add</button> 
+                        <button type="button" onClick={addTag} className="btn yellow-btn">Add</button> 
                     </div>
                     <div id="button-list">{tagButtons}</div>
                 </div>
@@ -228,8 +228,8 @@ function Create() {
                 </div>
 
                 <div className="form-group">
-                    <button type="button" onClick={cancelSubmission}>Cancel</button>
-                    <button type="submit" onClick={handleSave}>Save</button> 
+                    <button type="button" onClick={cancelSubmission} className="btn">Cancel</button>
+                    <button type="submit" onClick={handleSave} className="btn">Save</button> 
                 </div>
             </form>
         </main>

@@ -1,7 +1,7 @@
 import { AuthContextProvider } from './config/AuthContext';
 import {Route, Routes} from "react-router-dom";
 import ProtectedRoute from './config/ProtectedRoute';
-//import './App.css';
+import './App.scss';
 
 //components
 import SignIn from './components/user-forms/SignIn.js';
@@ -28,7 +28,7 @@ function App() {
         {/* <Route path="account" element={<ProtectedRoute><Account /></ProtectedRoute>} /> */}
         <Route path="create" element={<ProtectedRoute><Create /></ProtectedRoute>} />
         <Route path="/recipes/:recId" element={<ProtectedRoute><Recipe /></ProtectedRoute>} />
-        <Route path="shoppinglists" element={<ProtectedRoute><Lists /></ProtectedRoute>} />
+        {/* <Route path="shoppinglists" element={<ProtectedRoute><Lists /></ProtectedRoute>} /> */}
         <Route path="/recipes/:recId/edit" element={<ProtectedRoute><Edit /></ProtectedRoute>} />
         {/* 
         <Route path="shoppinglists" element={<ProtectedRoute><Lists /></ProtectedRoute>} />

@@ -25,20 +25,10 @@ function Navbar() {
         <nav>
             <ul>
                 <li><NavLink to="/recipes">Recipes</NavLink></li>
-                <li><NavLink to="/shoppinglists">Shopping Lists</NavLink></li>
+                {/* <li><NavLink to="/shoppinglists">Shopping Lists</NavLink></li> */}
                 <li><NavLink to="/create">Create</NavLink></li>
-                <li><button onClick={handleLogout}>Log Out</button></li>
+                <li><button onClick={handleLogout} className="btn yellow-btn">Log Out</button></li>
             </ul>
-
-            
-            {/*
-            menu icon for mobile nav
-            <div className="burger" onClick={navSlide}>
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
-            </div>
-            */}
         </nav>
     )
 }

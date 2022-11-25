@@ -122,7 +122,7 @@ function Edit() {
     const ingredientButtons = ingArr.map(ing => {
         return (
             <button
-                className="btn"
+                className="btn blue-btn"
                 value={ing}
                 key={ing}
                 onClick={(e) => {
@@ -136,7 +136,7 @@ function Edit() {
     const tagButtons = tagArr.map(tag => {
         return (
             <button
-                className="btn"
+                className="btn blue-btn"
                 value={tag}
                 key={tag}
                 onClick={(e) => {
@@ -196,7 +196,7 @@ function Edit() {
                       });
 
                       setTimeout(() => {
-                        window.location = "/recipes";
+                        window.location = `/recipes/${newRecipe.id}`;
                       }, 2000);
       
                       setTimeout();
@@ -255,7 +255,7 @@ function Edit() {
                             ref={recIng}
                             placeholder="e.g Apples, Sugar, etc."
                             required/>   
-                        <button type="button" onClick={addIng}>Add</button> 
+                        <button type="button" onClick={addIng} className="btn yellow-btn">Add</button> 
                     </div>
                     <div id="button-list">{ingredientButtons}</div>
                 </div>
@@ -270,7 +270,7 @@ function Edit() {
                             ref={recTag}
                             //defaultValue={recipeCard.tags}
                             placeholder="e.g Desert, Sweet, etc."/>   
-                        <button type="button" onClick={addTag}>Add</button> 
+                        <button type="button" onClick={addTag} className="btn yellow-btn">Add</button> 
                     </div>
                     <div id="button-list">{tagButtons}</div>
                 </div>
@@ -287,8 +287,8 @@ function Edit() {
                 </div>
 
                 <div className="form-group">
-                    <button type="button" onClick={cancelSubmission}>Cancel</button>
-                    <button type="submit" onClick={handleSave}>Save</button> 
+                    <button type="button" onClick={cancelSubmission} className="btn red-btn">Cancel</button>
+                    <button type="submit" onClick={handleSave} className="btn green-btn">Save</button> 
                 </div>
             </form>
         </main>

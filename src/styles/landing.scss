@@ -1,0 +1,45 @@
+@use "../App.scss";
+
+section {
+    //margin: 0 6vw;
+
+    header {
+        //border: solid red;
+        height: 60vh;
+        background-color: App.$secondary;
+        padding-top: 7em;
+        border-bottom: solid 5px App.$accent;
+
+        h1 {
+            font-family: App.$header;
+        }
+    }
+}
+.main {
+    margin: 0 6vw;
+
+    #recipe-gallery, input, h2 {
+        margin: 3em 0;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    #recipe-gallery {
+        //border: solid red;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 1.5em;
+        margin: auto;
+
+        .card {
+            @include App.general-styles;
+            background-color: white;
+            aspect-ratio: 1/1;
+            padding: 1.5em;
+        }
+
+    }    
+}
+

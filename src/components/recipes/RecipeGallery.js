@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, firestore } from "../../config/Firebase";
 import { doc, getDoc } from "firebase/firestore";
+import "../../styles/landing.scss";
 
 //search bar
 
@@ -69,14 +70,19 @@ function RecipeGallery() {
     });
 
   return (
-    <main>
-      <div></div>
-      <input
-        placeholder="Search for your recipes here"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <section id="recipe-gallery">{recipeCards}</section>
-    </main>
+    <section>
+      <header>
+        <h1>My Cookbook Diary</h1>
+      </header>
+      <div className="main">
+        <h1>My Recipes</h1>
+        <input
+          placeholder="Search for your recipes here"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <section id="recipe-gallery">{recipeCards}</section>
+      </div>
+    </section>
   );
 }
 

@@ -1,0 +1,128 @@
+//this is for styles that apply to entire app
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Fredoka+One&display=swap');
+
+
+//colors
+$main: #F5F3F0;
+$secondary: #DB5A42;
+$accent: #262020;
+$grey-text: rgba(38, 32, 32, 0.87);
+
+$yellow: #FFB042;
+$yellow-action: #FF9C13;
+
+$blue: #A5B1E8;
+$blue-action: #5466E9;
+
+$green: #1A986B;
+$green-action: #008C5A;
+
+$red: #F74C4C;
+$red-action: #F63838;
+
+//fonts
+$header: 'Fredoka One', cursive;
+$main-text: 'Fredoka', sans-serif;
+
+//border
+$border: solid 1px $accent;
+
+@mixin general-styles {
+    //padding: 0.5em;
+    border: $border;
+}
+
+@mixin yellow-btn {
+    background-color: $yellow;
+
+    &:hover, &:active {
+        background-color: $yellow-action;
+    }
+}
+
+@mixin blue-btn {
+    background-color: $blue;
+
+    &:hover, &:active {
+        background-color: $blue-action;
+    }
+}
+
+@mixin green-btn {
+    background-color: $green;
+
+    &:hover, &:active {
+        background-color: $green-action;
+    }
+}
+
+@mixin red-btn {
+    background-color: $red;
+
+    &:hover, &:active {
+        background-color: $red-action;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $main;
+    color: $accent;
+    font-family: $main-text;
+
+    .btn {
+        @include general-styles;
+        padding: 1em;
+    }
+
+    .yellow-btn {
+        @include yellow-btn;
+    }
+
+    .green-btn {
+        @include green-btn;
+    }
+
+    .red-btn {
+        @include red-btn;
+    }
+
+    .blue-btn {
+        @include blue-btn;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        @include general-styles;
+        padding: 1.5em;
+    }
+
+    nav {
+        //border: solid red;
+        position: fixed;
+        width: 100%;
+        
+
+        ul {
+            display: flex;
+            align-items: center;
+            //justify-content: space-evenly;
+            list-style-type: none;
+            padding: 1.5em;
+
+
+            li:nth-child(3) {
+                margin-left: auto;
+            }
+        }
+    }
+}
