@@ -165,7 +165,7 @@ function Edit() {
             description: recDesc.current.value,
             ingredients: ingArr,
             tags: tagArr,
-            note: recNotes.current.value,
+            notes: recNotes.current.value,
             id: Number(recId),
         };
 
@@ -195,11 +195,11 @@ function Edit() {
                         recipes: newArr,
                       });
 
-                      setTimeout(() => {
-                        window.location = `/recipes/${newRecipe.id}`;
-                      }, 2000);
+                    //   setTimeout(() => {
+                    //     window.location = `/recipes/${newRecipe.id}`;
+                    //   }, 2000);
       
-                      setTimeout();
+                    //   setTimeout();
                     } else {
                       console.log("No such document!");
                       

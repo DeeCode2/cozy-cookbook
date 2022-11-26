@@ -53,16 +53,16 @@ function RecipeGallery() {
     .map((card) => {
       const tags = card.tags.map((tag) => {
         return (
-          <span key={tag} className="tag">
+          <li key={tag} className="tag">
             {tag.toUpperCase()}
-          </span>
+          </li>
         );
       });
 
       return (
         <div className="card" key={card.id}>
           <h4>{card.title}</h4>
-          <div id="tags">{tags}</div>
+          <ul id="tags">{tags}</ul>
           <p>{card.description}</p>
           <Link to={`${card.id}`}>View Recipe</Link>
         </div>
@@ -72,14 +72,17 @@ function RecipeGallery() {
   return (
     <section>
       <header>
-        <h1>My Cookbook Diary</h1>
+        <h1>My<br/>Cookbook<br/>Diary</h1>
       </header>
       <div className="main">
-        <h1>My Recipes</h1>
-        <input
-          placeholder="Search for your recipes here"
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <div id="search">
+          <h1>My Recipes</h1>
+          <input
+            placeholder="Search for your recipes here"
+            onChange={(e) => setQuery(e.target.value)}
+          />  
+        </div>
+        
         <section id="recipe-gallery">{recipeCards}</section>
       </div>
     </section>

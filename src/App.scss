@@ -26,6 +26,7 @@ $main-text: 'Fredoka', sans-serif;
 
 //border
 $border: solid 1px $accent;
+$shadow: 0px 1px 35px rgba(192, 192, 192, 0.2);
 
 @mixin general-styles {
     //padding: 0.5em;
@@ -34,9 +35,12 @@ $border: solid 1px $accent;
 
 @mixin yellow-btn {
     background-color: $yellow;
+    box-shadow: 0px 5px 15px rgba(255, 176, 66, 0.15);
 
     &:hover, &:active {
         background-color: $yellow-action;
+        box-shadow: 0px 9px 10px rgba(253, 162, 34, 0.25);
+        transform: translateY(-2px);
     }
 }
 
@@ -64,6 +68,20 @@ $border: solid 1px $accent;
     }
 }
 
+@mixin small-btns {
+    list-style-type: none;
+
+    li {
+        @include blue-btn;
+        @include general-styles;
+        display: inline-block;
+        margin: 0.5em 0.5em 0.5em 0;
+        padding: 0.4em;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -78,6 +96,8 @@ body {
     .btn {
         @include general-styles;
         padding: 1em;
+        transition: .3s;
+        cursor: pointer;
     }
 
     .yellow-btn {
@@ -104,12 +124,15 @@ body {
     input {
         @include general-styles;
         padding: 1.5em;
+        box-shadow: $shadow;
     }
 
     nav {
         //border: solid red;
         position: fixed;
         width: 100%;
+        border-bottom: solid 0.5px $accent;
+        background-color: $secondary;
         
 
         ul {
@@ -117,10 +140,32 @@ body {
             align-items: center;
             //justify-content: space-evenly;
             list-style-type: none;
-            padding: 1.5em;
+            padding: 1em;
+            font-size: 1.1em;
 
+            li, button {
+                cursor: pointer;
+                font-weight: bold;
+                letter-spacing: 0.1em;
+                
 
-            li:nth-child(3) {
+                a {
+                    text-decoration: none;
+                    color: $accent;
+                    transition: .3s;
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+                
+            }
+
+            li:not(:last-child) {
+                margin: 0.5em 1em 0.5em 0;
+            }
+
+            li:last-child {
                 margin-left: auto;
             }
         }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { auth, firestore } from "../../config/Firebase";
 import { doc, getDoc } from "firebase/firestore";
+import "../../styles/recipe.scss";
 
 function Recipe() {
   const [ingArr, setIngArr] = useState([]);
@@ -86,26 +87,35 @@ function Recipe() {
   return (
     <main>
       <section>
-        <ul>
-          {tagArr.map((tag) => {
-            return <li key={tag}>{tag}</li>;
-          })}
-        </ul>
-        <h1>{recipeCard.title}</h1>
-        <p>{recipeCard.description}</p>
-        <ul>
-          {ingArr.map((ing) => {
-            return <li key={ing}>{ing}</li>;
-          })}
-        </ul>
-        <p>{recipeCard.notes}</p>
+
+        <div id="recipe split-left">
+          <ul id="tags">
+            {tagArr.map((tag) => {
+              return <li key={tag}>{tag.toUpperCase()}</li>;
+            })}
+          </ul>
+          <h1>{recipeCard.title}</h1>
+          <p>{recipeCard.description}</p>
+          <div>
+            <button type="button" className="btn blue-btn">Return</button>
+            <Link to={"edit"} className="btn green-btn">Edit</Link>
+            {/* <button type="button">Add to shopping list</button> */}
+          </div> 
+        </div>
+
+        <div id="split-right">
+          <h2>Ingredients</h2>
+         <ul id="ingredients">
+            {ingArr.map((ing) => {
+              return <li key={ing}>{ing}</li>;
+            })}
+          </ul>
+          <p>{recipeCard.notes}</p> 
+        </div> 
+        
       </section>
 
-      <div>
-        <button type="button" className="btn blue-btn">Return</button>
-        <Link to={"edit"} className="btn green-btn">Edit</Link>
-        {/* <button type="button">Add to shopping list</button> */}
-      </div>
+      
     </main>
   );
 }
