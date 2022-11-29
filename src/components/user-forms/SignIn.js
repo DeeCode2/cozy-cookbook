@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserAuth } from "../../config/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import "../../styles/userForms.scss";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");

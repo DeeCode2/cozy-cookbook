@@ -153,7 +153,7 @@ function Edit() {
                 onClick={(e) => {
                     deleteIngredient(e)
                 }}>
-                {ing}
+                {ing.toUpperCase()}
             </button>
         );
     });
@@ -167,7 +167,7 @@ function Edit() {
                 onClick={(e) => {
                     deleteTag(e)
                 }}>
-                {tag}
+                {tag.toUpperCase()}
             </button>
         );
     });
@@ -246,7 +246,7 @@ function Edit() {
 
     return (
         <main>
-            <form>
+            <form id="recipe-form">
                 <div className="form-group">
                     <label for="title">Title</label>
                     <input

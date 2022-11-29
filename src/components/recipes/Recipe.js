@@ -86,7 +86,7 @@ function Recipe() {
 
   return (
     <main>
-      <section>
+      <section id="recipe-detail">
 
         <div id="recipe split-left">
           <ul id="tags">

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../config/AuthContext';
 import { auth } from "../../config/Firebase.js";
 import { doc, setDoc, getFirestore } from "firebase/firestore";
-
+import "../../styles/userForms.scss";
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
