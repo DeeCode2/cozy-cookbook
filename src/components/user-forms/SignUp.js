@@ -46,7 +46,7 @@ const SignUp = () => {
 
     return (
       <main id="sign-up" className="reg-form">
-          <form onSubmit={handleSubmit}>
+          <form id="user-form" onSubmit={handleSubmit}>
           <h1>Create your account</h1>
 
             <div className="form-group">
@@ -67,6 +67,5 @@ const SignUp = () => {
       </main>
     );
   };
-  
 
 export default SignUp;

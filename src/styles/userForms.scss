@@ -1,51 +1,42 @@
 @use "../App.scss";
 
-.regForm {
+.reg-form {
+  height: 100vh;
 
+  form {
     max-width: 400px;
     border: solid;
     margin: auto;
-
     background-color: white;
-    border:  App.$border;
+    border: App.$border;
     padding: 1.5em;
 
     h1 {
-        font-size: 3em;
+      font-size: 3em;
     }
 
     .form-group {
-
-        label {
-            font-size: 1.2em;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            margin-top: 1em;
-            //padding-bottom: 0.5em;
-        }
-
-        input {
-            //border: solid green;
-            margin: 0;
-        }
-        
+      label {
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        margin-top: 1em;
+      }
     }
 
     button {
-        font-weight: bold;
-        letter-spacing: 0.2em;
-        text-decoration: none;
-        color: App.$accent;
-        margin: 2em 0 1em 0;
-        width: 100%;
-        font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      color: App.$accent;
+      margin: 2em 0 1em 0;
+      width: 100%;
+      font-size: 1em;
     }
-
-    
 
     p {
-        margin-top: 1em;
-        text-align: center;
-        //border: solid red;
+      margin-top: 1em;
+      text-align: center;
     }
+  }
 }
