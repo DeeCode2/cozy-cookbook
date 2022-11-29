@@ -6,7 +6,8 @@ main {
 
     #recipe-form {
         border: solid;
-        margin: 0 6vw;
+        margin: 0 auto;
+        max-width: 1000px;
 
         background-color: white;
         border:  App.$border;
