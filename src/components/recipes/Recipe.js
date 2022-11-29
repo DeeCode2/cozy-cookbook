@@ -96,21 +96,21 @@ function Recipe() {
           </ul>
           <h1>{recipeCard.title}</h1>
           <p>{recipeCard.description}</p>
-          <div>
-            <button type="button" className="btn blue-btn">Return</button>
-            <Link to={"edit"} className="btn green-btn">Edit</Link>
+          <div id="buttons">
+          <Link to={"../recipes"} className="btn yellow-btn return-btn">Return</Link>
+            <Link to={"edit"} className="btn green-btn edit-btn">Edit</Link>
             {/* <button type="button">Add to shopping list</button> */}
           </div> 
         </div>
 
         <div id="split-right">
           <h2>Ingredients</h2>
-         <ul id="ingredients">
-            {ingArr.map((ing) => {
-              return <li key={ing}>{ing}</li>;
-            })}
-          </ul>
-          <p>{recipeCard.notes}</p> 
+          <ul id="ingredients">
+              {ingArr.map((ing) => {
+                return <li key={ing}>{ing}</li>;
+              })}
+            </ul>
+            <p>{recipeCard.notes}</p> 
         </div> 
         
       </section>

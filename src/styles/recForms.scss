@@ -1,0 +1,89 @@
+@use "../App.scss";
+
+main {
+    //border: solid red;
+    padding: 20vh 0 10vh 0;
+
+    form {
+        border: solid;
+        margin: 0 6vw;
+
+        background-color: white;
+        border:  App.$border;
+        padding: 1.5em;
+
+        .form-group {
+            //border: solid seagreen;
+            margin: 1em 0;
+
+            label {
+                font-size: 1.2em;
+                font-weight: bold;
+                letter-spacing: 0.1em;
+                padding-bottom: 0.5em;
+            }
+
+            .button-input {
+                //border: solid red;
+                display: flex;
+                align-items: center;
+
+                button {
+                    aspect-ratio: 1/1;
+                    //height: 100%;
+                    margin-left: 1em;
+                }
+
+                @media screen and (max-width: 800px) {
+                    input {
+                        width: 100%
+                    }
+                }
+
+            }
+            //border: solid;
+
+            textarea {
+                min-height: 200px;
+            }
+        }
+
+        .button-list {
+            //border: solid seagreen;
+            height: max-content;
+            padding: 1em 0;
+
+            button {
+                margin-right: 1em;
+                padding: 0.5em;
+                letter-spacing: 0.2em;
+            }
+            
+            // button:not(:first-child) {
+            //     //border: solid red;
+            //     margin-left: 1em;
+            // }
+        }
+
+        .button-group {
+            width: max-content;
+            //border: solid;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+
+            button {
+                font-weight: bold;
+                letter-spacing: 0.2em;
+                text-decoration: none;
+                color: App.$accent;
+            }
+
+            .green-btn, .blue-btn {
+                margin-left: 1em;
+            }
+        }
+
+        
+    }
+}

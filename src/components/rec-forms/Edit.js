@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState} from "react";
 import { Navigate, useNavigate, useParams  } from "react-router-dom";
 import { auth, firestore } from '../../config/Firebase';
 import { updateDoc, doc, arrayUnion, getDoc } from 'firebase/firestore';
+import "../../styles/recForms.scss";
 
 function Edit() {
 
@@ -18,7 +19,7 @@ function Edit() {
     const [tagArr, setTagArr] = useState([]);
     const [userId, setUserId] = useState("");
     const [recipeCard, setRecipeCard] = useState([]);
-    const [newRecipeCard, setNewRecipeCard] = useState([]);
+    const [newRecipeData, setNewRecipeData] = useState([]);
 
     const { recId } = useParams();
     const navigate = useNavigate();
@@ -33,7 +34,8 @@ function Edit() {
                 setUserId(uid);
                 getDoc(doc(firestore, uid, "recipes")).then(docSnap => {
                     if (docSnap.exists()) {
-
+                        
+                        
 
                         //binary search of recipes
                         function searchRecipes(targetId, recipeArr) {
@@ -43,6 +45,7 @@ function Edit() {
                             while (start <= end) {
                               let middle = Math.floor((start + end) / 2);
                               if (recipeArr[middle].id === targetId) {
+
                                 setRecipeCard(recipeArr[middle])
                                 setTagArr(recipeArr[middle].tags)
                                 setIngArr(recipeArr[middle].ingredients)
@@ -56,6 +59,7 @@ function Edit() {
                             return -1;
                         }
 
+                        setNewRecipeData(docSnap.data().recipes.filter(rec => rec.id !== Number(recId)))
                         searchRecipes(Number(recId), docSnap.data().recipes)
 
                         //setTagArr(recipeCard.tags)
@@ -70,6 +74,8 @@ function Edit() {
             }
         });
     }, []);
+
+    
 
     //remove ingredient/tag from array when delete ingredient/tag button is clicked
     function deleteIngredient(e) {
@@ -116,6 +122,25 @@ function Edit() {
                 )
             })
         }
+    }
+
+    //delete recipe if use clicks delete button
+    function deleteRecipe() {
+        try {
+            //const ref = doc(firestore, uid, "recipes");
+            updateDoc(doc(firestore, userId, "recipes"), {
+              recipes: newRecipeData,
+            });
+  
+            //navigate back to recipe gallery
+            setTimeout(() => {
+              window.location = "/recipes";
+            }, 2000);
+  
+            setTimeout();
+          } catch (err) {
+            console.log(err.message);
+          }
     }
 
     //map over arrays of tags and buttons to render buttons
@@ -236,7 +261,7 @@ function Edit() {
 
                 <div className="form-group">
                     <label for="desc">Description</label>
-                    <input
+                    <textarea
                         id="desc"
                         type="text"
                         name="desc"
@@ -257,7 +282,7 @@ function Edit() {
                             required/>   
                         <button type="button" onClick={addIng} className="btn yellow-btn">Add</button> 
                     </div>
-                    <div id="button-list">{ingredientButtons}</div>
+                    <div className="button-list">{ingredientButtons}</div>
                 </div>
 
                 <div className="form-group">
@@ -272,12 +297,12 @@ function Edit() {
                             placeholder="e.g Desert, Sweet, etc."/>   
                         <button type="button" onClick={addTag} className="btn yellow-btn">Add</button> 
                     </div>
-                    <div id="button-list">{tagButtons}</div>
+                    <div className="button-list">{tagButtons}</div>
                 </div>
 
                 <div className="form-group">
                     <label for="notes">Notes</label>
-                    <input
+                    <textarea
                         id="notes"
                         type="text"
                         name="notes"
@@ -286,8 +311,9 @@ function Edit() {
                         placeholder="Instructions, substitutions, or anyhting you want!"/>
                 </div>
 
-                <div className="form-group">
-                    <button type="button" onClick={cancelSubmission} className="btn red-btn">Cancel</button>
+                <div className="form-group button-group">
+                    <button type="button" onClick={deleteRecipe} className="btn red-btn">Delete</button>
+                    <button type="button" onClick={cancelSubmission} className="btn blue-btn">Cancel</button>
                     <button type="submit" onClick={handleSave} className="btn green-btn">Save</button> 
                 </div>
             </form>

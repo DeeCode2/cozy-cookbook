@@ -121,10 +121,24 @@ body {
         flex-direction: column;
     }
 
-    input {
+    input, textarea {
         @include general-styles;
-        padding: 1.5em;
+        padding: 1em;
         box-shadow: $shadow;
+
+        font-family: $main-text;
+        font-size: 1.2em;
+        letter-spacing: 0.1em;
+        color-scheme: $accent;
+
+        &:placeholder {
+            font-family: $main-text;
+        }
+
+        &:focus  {
+            border-bottom: 5px solid $accent;
+            outline: none;
+        }
     }
 
     nav {

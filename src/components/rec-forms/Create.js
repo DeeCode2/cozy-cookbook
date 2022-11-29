@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { auth, firestore } from '../../config/Firebase';
 import { updateDoc, doc, arrayUnion, getDoc } from 'firebase/firestore';
+import "../../styles/recForms.scss";
 
 function Create() {
 
@@ -180,7 +181,7 @@ function Create() {
 
                 <div className="form-group">
                     <label for="desc">Description</label>
-                    <input
+                    <textarea
                         id="desc"
                         type="text"
                         name="desc"
@@ -200,7 +201,7 @@ function Create() {
                             required/>   
                         <button type="button" onClick={addIng} className="btn yellow-btn">Add</button> 
                     </div>
-                    <div id="button-list">{ingredientButtons}</div>
+                    <div className="button-list">{ingredientButtons}</div>
                 </div>
 
                 <div className="form-group">
@@ -214,12 +215,12 @@ function Create() {
                             placeholder="e.g Desert, Sweet, etc."/>   
                         <button type="button" onClick={addTag} className="btn yellow-btn">Add</button> 
                     </div>
-                    <div id="button-list">{tagButtons}</div>
+                    <div className="button-list">{tagButtons}</div>
                 </div>
 
                 <div className="form-group">
                     <label for="notes">Notes</label>
-                    <input
+                    <textarea
                         id="notes"
                         type="text"
                         name="notes"
@@ -227,9 +228,9 @@ function Create() {
                         placeholder="Instructions, substitutions, or anyhting you want!"/>
                 </div>
 
-                <div className="form-group">
-                    <button type="button" onClick={cancelSubmission} className="btn">Cancel</button>
-                    <button type="submit" onClick={handleSave} className="btn">Save</button> 
+                <div className="form-group button-group">
+                    <button type="button" onClick={cancelSubmission} className="btn red-btn">Cancel</button>
+                    <button type="submit" onClick={handleSave} className="btn green-btn">Save</button> 
                 </div>
             </form>
         </main>

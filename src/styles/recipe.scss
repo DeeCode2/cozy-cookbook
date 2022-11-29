@@ -2,10 +2,10 @@
 
 
 main {
-    padding: 20vh 0;
+    padding: 20vh 0 10vh 0;
+    
     section {
         border: solid;
-        height: 100vh;
         margin: 0 6vw;
 
         background-color: white;
@@ -18,14 +18,15 @@ main {
 
         #tags {
             @include App.small-btns;
-            font-size: 1.2em;
+            font-size: 1em;
+            letter-spacing: 0.2em;
         }
 
         h1 {
             font-size: 6.6vmin;
             font-family: App.$header;
             border-bottom: solid 1px App.$accent;
-            padding-bottom: 0.5em;
+            padding: 0.5em 0;
         }
 
         p {
@@ -37,21 +38,40 @@ main {
 
         #ingredients {
             list-style-type: circle;
-            //border: solid;
             list-style-position: inside;
             font-size: 1.2em;
             margin: 1em 0;
         }
 
-        @media screen and (min-width: 900px) {
+        #split-right {
+            h2 {
+                font-size: 2em;
+            }
+        }
 
+        #buttons {
+            width: max-content;
+
+            a {
+                font-weight: bold;
+                letter-spacing: 0.2em;
+                text-decoration: none;
+                color: App.$accent;
+            }
+
+            .edit-btn {
+                margin-left: 1em;
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            padding-bottom: 2.5em;
             grid-template-columns: 1fr 1fr;
 
             #split-right {
                 border-left: solid 1px App.$accent;
-                padding-left: 1.5em; 
+                padding-left: 1.5em;
             }
-            
         }
         
     }
